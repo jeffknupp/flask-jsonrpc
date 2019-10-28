@@ -69,7 +69,7 @@ def extract_raw_data_request(request):
                 return request.data
             elif request.form.to_dict():
                 #return list(request.form.to_dict().keys())[0]
-                return list(request.form.to_dict().keys())[0] if instance(list(request.form.to_dict().keys())[0], bytes) else list(request.form.to_dict().keys())[0].encode()
+                return list(request.form.to_dict().keys())[0] if isinstance(list(request.form.to_dict().keys())[0], bytes) else list(request.form.to_dict().keys())[0].encode()
         return b('')
     raw_data = _extract_raw_data_request(request)
 
